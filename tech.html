@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sensor Grid</title>
+    <style>
+        /* General page reset */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; /* Light gray background for contrast */
+        }
+
+        /* The main grid container */
+        .grid-container {
+            display: grid;
+            /* Default layout: 6 columns of equal width */
+            grid-template-columns: repeat(6, 1fr);
+            gap: 25px; /* Spacing between the blocks */
+            max-width: 1200px; /* Optional: keep it from getting too wide on huge screens */
+            margin: 0 auto; /* Center the container */
+        }
+
+        /* The individual clickable block */
+        .grid-block {
+            /* The specific teal color from the image */
+            background-color: #00a587; 
+            /* Flex layout to stack icon and text vertically */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding: 10px 10px;
+            /* Remove default link styling */
+            text-decoration: none;
+            color: white;
+            /* Smooth transition for the hover effect */
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s ease;
+            border-radius: 4px; /* Optional: slight rounding of corners */
+        }
+
+        /* Hover effect: Float up and add shadow */
+        .grid-block:hover {
+            /* Move up by 10 pixels */
+            transform: translate(-10px,-10px);
+            /* Add a soft shadow underneath to enhance floating illusion */
+            box-shadow: 0 15px 30px rgba(0, 166, 133, 0.4);
+            /* Optional: slightly lighten background on hover */
+            background-color: #00a587;
+        }
+
+        /* The icon image styling */
+        .block-icon {
+            /* Requirement: Icon width must be 160px */
+            width: 160px;
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 10px; /* Space between icon and text */
+            /* Ensure images don't overflow their container on small screens if padding gets tight */
+            max-width: 100%; 
+            display: block;
+        }
+
+        /* The caption text styling */
+        .block-caption {
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+
+
+        /* ----- Responsive Breakpoints ----- */
+
+        /* On screens smaller than 1300px, switch to 4 columns */
+        @media (max-width: 800px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* On screens smaller than 992px (typical tablets), switch to 3 columns */
+        @media (max-width: 600) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* On screens smaller than 768px (small tablets/large phones), switch to 2 columns 
+        @media (max-width: 400px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px; /* Reduce gap slightly on smaller screens */
+            }
+            .grid-block {
+                 padding: 20px 10px; /* Reduce padding slightly */
+            }
+        }*/
+
+        /* On very small screens (e.g., under 400px), stick to 2 columns but ensure they fit. 
+           If the content is too wide, 1 column might be needed, but 2 usually works for icons. */
+        @media (max-width: 400px) {
+             /* We keep 2 columns, but rely on max-width: 100% on the icon to prevent overflow */
+            .block-caption {
+                font-size: 0.9rem; /* Slightly smaller text */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/109153039/EMS" class="grid-block">
+            <img src="ems.png" alt="Electromagnetic Sensors" class="block-icon">
+            <div class="block-caption">Electromagnetic Sensors (EMS)</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/109152101/OMS" class="grid-block">
+            <img src="pf_rgb_R2000a.png" alt="Opto Measurement & Safety" class="block-icon">
+            <div class="block-caption">Opto Measurement & Safety (OMS)</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/109152067/URS" class="grid-block">
+            <img src="icon_urs.png" alt="Ultrasonic & Radar Sensors" class="block-icon">
+            <div class="block-caption">Ultrasonic & Radar Sensors (URS)</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/112296281/MCS" class="grid-block">
+            <img src="encoder.png" alt="Motion & Condition Sensors" class="block-icon">
+            <div class="block-caption">Motion & Condition Sensors (MCS)</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/109151493/Systems" class="grid-block">
+            <img src="sys.png" alt="RFID Systems" class="block-icon">
+            <div class="block-caption">RFID Systems & Industrial Comm.</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/102008132/IVC" class="grid-block">
+            <img src="IVC.png" alt="Industrial Vision Components" class="block-icon">
+            <div class="block-caption">Industrial Vision Components (IVC)</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/112303246/Functional+Safety" class="grid-block">
+            <img src="safety.png" alt="Functional Safety" class="block-icon">
+            <div class="block-caption">Functional Safety</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/101643108/ICI" class="grid-block">
+            <img src="ICI.png" alt="ICI" class="block-icon">
+            <div class="block-caption">ICI</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/109153667/ROS" class="grid-block">
+            <img src="ROS.png" alt="ROS" class="block-icon">
+            <div class="block-caption">ROS</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/112296226/e-Mobility" class="grid-block">
+            <img src="AGV.png" alt="e-Mobility" class="block-icon">
+            <div class="block-caption">e-Mobility</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/112303261/Industries" class="grid-block">
+            <img src="industries.png" alt="Industries" class="block-icon">
+            <div class="block-caption">Industries</div>
+        </a>
+
+        <a href="https://pfteamspace.pepperl-fuchs.com/spaces/APSG2MFSL0322/pages/109153651/IIoT" class="grid-block">
+            <img src="pf_rgb_cloud-upload-download.png" alt="IIoT" class="block-icon">
+            <div class="block-caption">IIoT</div>
+        </a>
+    </div>
+
+</body>
+</html>
